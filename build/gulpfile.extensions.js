@@ -201,7 +201,6 @@ gulp.task('get-latest-extension-version', async () => {
 		versionMap[ext] = package.version;
 	}
 	return new Promise((resolve, reject) => {
-		fs.unlinkSync(path.join(__dirname, '../.git', 'index.lock'));
 		git.checkout('release/extensions', (err) => {
 			if (err) {
 				reject(err);
