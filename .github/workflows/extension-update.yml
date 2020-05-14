@@ -14,7 +14,11 @@ jobs:
       with:
         ref: release/extensions
     - run: wget https://raw.githubusercontent.com/microsoft/azuredatastudio/master/extensions/agent/package.json
-    - run: git add -A
+    - name: Commit Files
+    - run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
     - run: git commit -m "Update Agent version"
     - name: Push changes
       uses: ad-m/github-push-action@master
