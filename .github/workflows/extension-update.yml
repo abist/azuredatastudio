@@ -14,10 +14,8 @@ jobs:
       with:
         ref: release/extensions
     - run: wget https://raw.githubusercontent.com/microsoft/azuredatastudio/master/extensions/agent/package.json
-    - run: |
-      git add -A
-      git commit -m "Update Agent version"
-      git push
+    - run: git add -A
+    - run: git commit -m "Update Agent version"
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v2
       with:
