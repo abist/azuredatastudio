@@ -10,12 +10,12 @@ jobs:
   update-extensions:
     runs-on: ubuntu-latest
     steps:
-    - name: Update Agent
     - uses: actions/checkout@v2
       with:
         ref: release/extensions
     - uses: actions/checkout@v2
       with:
         ref: master -- ../../extensions/agent/package.json
-    - run: git commit -m "Update Agent version"
-    - run: git push
+    - name: Update Agent
+      run: git commit -m "Update Agent version"
+      run: git push
