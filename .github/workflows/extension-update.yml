@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: release/extensions
-    - run: ls
-    - run: wget -O -P extensions/agent/ -- https://raw.githubusercontent.com/abist/azuredatastudio/master/extensions/agent/package.json
+    - run: cd extensions/agent/
+    - run: wget -O https://raw.githubusercontent.com/abist/azuredatastudio/master/extensions/agent/package.json
     - run: git add -A
     - name: Commit Files
       run: |
