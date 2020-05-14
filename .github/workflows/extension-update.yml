@@ -17,7 +17,7 @@ jobs:
     - name: Get Latest Package
       run: |
         cd extensions/agent/
-        wget https://raw.githubusercontent.com/abist/azuredatastudio/master/extensions/agent/package.json
+        curl -o package.json https://raw.githubusercontent.com/abist/azuredatastudio/master/extensions/agent/package.json
         ls
         git status
         git add -A
