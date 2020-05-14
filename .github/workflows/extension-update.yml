@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: release/extensions
-    - run: wget https://raw.githubusercontent.com/microsoft/azuredatastudio/master/extensions/agent/package.json -P ./extensions/agent/
+    - run: curl https://raw.githubusercontent.com/microsoft/azuredatastudio/master/extensions/agent/package.json > ./extensions/agent/package.json
     - run: git add -A
     - name: Commit Files
       run: |
