@@ -18,5 +18,6 @@ jobs:
       uses: alexesprit/action-update-file@master
       with:
         file-path: ../../extensions/agent/package.json
+        branch: 'release/extensions'
         commit-msg: Update Agent version
         github-token: ${{ secrets.GITHUB_TOKEN }}
