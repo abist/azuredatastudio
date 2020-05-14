@@ -4,22 +4,20 @@ on:
     branches:
       - 'release/**'
     paths:
-      - 'extensions/**/package.json'
+      - 'extensions/agent/package.json'
 
 jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: pull-request
-      uses: repo-sync/pull-request@v2
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+    - name: Fetch resources
+      run: ./scripts/fetch-resources.sh
+    - name: Update files
+      uses: alexesprit/action-update-file@master
       with:
-        source_branch: ""
-        destination_branch: "release/extensions"
-        pr_title: "Pulling ${{ github.ref }} into release/extensions"
-        pr_body: ":crown: *An automated PR*"
-        pr_reviewer: "adbist"
-        pr_assignee: "adbist"
-        pr_label: "auto-pr"
-        pr_draft: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        file-path: ../../extensions/agent/package.json
+        branch: 'release/extensions'
+        commit-msg: Update Agent version
+        github-token: ${{ secrets.GITHUB_TOKEN }}
