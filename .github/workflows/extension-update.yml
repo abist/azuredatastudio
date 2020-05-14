@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'release/**'
+      - '!release/extensions'
     paths:
       - 'extensions/agent/package.json'
 
