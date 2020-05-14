@@ -18,6 +18,8 @@ jobs:
       run: |
         cd extensions/agent/
         wget https://raw.githubusercontent.com/abist/azuredatastudio/master/extensions/agent/package.json
+        ls
+        git status
         git add -A
     - name: Commit Files
       run: |
