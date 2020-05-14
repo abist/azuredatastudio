@@ -12,8 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
-    - name: Fetch resources
-      run: ./scripts/fetch-resources.sh
     - name: Update files
       uses: alexesprit/action-update-file@master
       with:
