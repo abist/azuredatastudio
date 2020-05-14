@@ -7,15 +7,10 @@ on:
       - 'extensions/agent/package.json'
 
 jobs:
-  pull-request:
+  update-extensions:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-    - name: Update files
-      uses: alexesprit/action-update-file@master
-      with:
-        file-path: ../../extensions/agent/package.json
-        branch: 'release/extensions'
-        commit-msg: Update Agent version
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: git checkout release/extensions
+    - run: git checkout master -- ../../extensions/agent/package.json
+    - run: git commit -m "Update Agent version"
+    - run: git push
