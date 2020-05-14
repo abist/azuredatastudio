@@ -13,7 +13,9 @@ jobs:
     - name: Update Agent
     - uses: actions/checkout@v2
       with:
-          ref: release/extensions -- ../../extensions/agent/package.json
-
+        ref: release/extensions
+    - uses: actions/checkout@v2
+      with:
+        ref: master -- ../../extensions/agent/package.json
     - run: git commit -m "Update Agent version"
     - run: git push
